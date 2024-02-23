@@ -14,6 +14,10 @@
         fream.setAttribute("src", "https://script.google.com/macros/s/AKfycbx_t_oBYmPCahY7zmc-rdvjvx40vVk2qLtDUbGdlz9zPM2pSg86iZ-RlmUAgKaG0Jw6qg/exec?serverid="+inputserv.value) 
         serverbutton.setAttribute("hidden", "true")
         inputserv.setAttribute("hidden", "true")
+        document.cookie = "serveronload="+inputserv.value
+      }
+      function sendmessages(username, password, message, serverid) {
+        
       }
     </script>
   </body>
