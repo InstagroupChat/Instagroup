@@ -20,8 +20,8 @@
       var serverbutton = document.getElementById('serverloadbutton')
       var fream = document.getElementById('framed')
       var usernametosave = document.getElementById('usernamebox')
-      var passwordtosave = document.getElementById('passwordbox')
-      var mesgbox = document.getElementById('messagebox').value
+      var passwordtosave = document.getElementById('password box)
+      var mesgbox = document.getElementById('messagebox')
       fream.width = window.innerWidth
       fream.setAttribute("src", "https://script.google.com/macros/s/AKfycbx_t_oBYmPCahY7zmc-rdvjvx40vVk2qLtDUbGdlz9zPM2pSg86iZ-RlmUAgKaG0Jw6qg/exec?serverid="+getCookie("serveronload")) 
       function loadmessages() {
@@ -45,7 +45,7 @@
         passwordtosave.setAttribute('hidden', "true")
       }
       function sendtoapi() {
-        sendMsgUser(getCookie("usernamesaved"), getCookie("passwordsaved"), mesgbox, getCookie("serveronload"))
+        sendMsgUser(getCookie("usernamesaved"), getCookie("passwordsaved"), mesgbox.value, getCookie("serveronload"))
         window.open(window.location.href, "_top")
       }
     </script>
