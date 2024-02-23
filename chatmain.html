@@ -9,14 +9,14 @@
     <button onclick="loadmessages()" id="serverloadbutton">Load server</button>
     <button onclick="popup()">Open Popup window</button>
     <div id="sendmsg">
-      <input type="text" id="usernamebox">
-      <input type="password" id="passwordbox">
+      <input type="text" id="usernamebox" placeholder="username">
+      <input type="password" id="passwordbox" placeholder="password">
       <button onclick="save_login()">save</button>
-      <input type="text" id="messagebox">
+      <input type="text" id="messagebox" placeholder="message">
       <button onclick="sendtoapi()">send</button>
     </div>
     <style>
-      input[type=text] {
+      input {
         padding:10px;
         border-radius:10px;
       }
