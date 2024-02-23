@@ -46,7 +46,7 @@
       }
       function sendtoapi() {
         sendMsgUser(getCookie("usernamesaved"), getCookie("passwordsaved"), mesgbox, getCookie("serveronload"))
-        window.reload()
+        window.open(window.location.href, "_top")
       }
     </script>
   </body>
