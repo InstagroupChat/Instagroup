@@ -10,6 +10,7 @@
       var inputserv = document.getElementById('serverid')
       var serverbutton = document.getElementById('serverloadbutton')
       var fream = document.getElementById('framed')
+      fream.setAttribute("src", "https://script.google.com/macros/s/AKfycbx_t_oBYmPCahY7zmc-rdvjvx40vVk2qLtDUbGdlz9zPM2pSg86iZ-RlmUAgKaG0Jw6qg/exec?serverid="+document.cookie.split("serveronload=")[1]) 
       function loadmessages() {
         fream.setAttribute("src", "https://script.google.com/macros/s/AKfycbx_t_oBYmPCahY7zmc-rdvjvx40vVk2qLtDUbGdlz9zPM2pSg86iZ-RlmUAgKaG0Jw6qg/exec?serverid="+inputserv.value) 
         serverbutton.setAttribute("hidden", "true")
