@@ -3,14 +3,23 @@
     <title>Instagroup chat</title>
   </head>
   <body>
+    <script src="APISend.js"></script>
     <iframe style="border: 0;" src="" width="600" height="650" id="framed"></iframe>
     <input type="text" id="serverid">
     <button onclick="loadmessages()" id="serverloadbutton">Load server</button>
     <button onclick="popup()">Open Popup window</button>
+    <div id="sendmsg">
+      <input type="text" id="usernamebox">
+      <input type="password" id="passwordbox">
+      <button onclick="save_login()">save</button>
+      <input type="text" id="messagebox">
+      <button onclick="">send</button>
+    </div>
     <script>
       var inputserv = document.getElementById('serverid')
       var serverbutton = document.getElementById('serverloadbutton')
       var fream = document.getElementById('framed')
+      var mesgbox = document.getElementById('messagebox').value
       fream.width = window.innerWidth
       fream.setAttribute("src", "https://script.google.com/macros/s/AKfycbx_t_oBYmPCahY7zmc-rdvjvx40vVk2qLtDUbGdlz9zPM2pSg86iZ-RlmUAgKaG0Jw6qg/exec?serverid="+document.cookie.split("serveronload=")[1]) 
       function loadmessages() {
@@ -21,6 +30,15 @@
       }
       function popup() {
         window.open('popup.html', 'test','popup=true,height=600,width=650,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes');
+      }
+      function save_login() {
+        var usernametosave = document.getElementById('usernamebox').value
+        var passwordtosave = document.getElementById('passwordbox').value
+        document.cookie = "usernamesaved="+usernametosave
+        document.cookie = "passwordsaved="+passwordtosave
+      }
+      function sendtoapi() {
+        sendMsgUser(document.cookie.split("usernamesaved=")[1], document.cookie.split("passwordsaved=")[1], mesgbox, document.cookie.split("serveronload=")[1])
       }
     </script>
   </body>
