@@ -11,6 +11,8 @@
       var inputserv = document.getElementById('serverid')
       var serverbutton = document.getElementById('serverloadbutton')
       var fream = document.getElementById('framed')
+      fream.height = window.innerHeight
+      fream.width = window.innerWidth
       fream.setAttribute("src", "https://script.google.com/macros/s/AKfycbx_t_oBYmPCahY7zmc-rdvjvx40vVk2qLtDUbGdlz9zPM2pSg86iZ-RlmUAgKaG0Jw6qg/exec?serverid="+document.cookie.split("serveronload=")[1]) 
       function loadmessages() {
         fream.setAttribute("src", "https://script.google.com/macros/s/AKfycbx_t_oBYmPCahY7zmc-rdvjvx40vVk2qLtDUbGdlz9zPM2pSg86iZ-RlmUAgKaG0Jw6qg/exec?serverid="+inputserv.value) 
@@ -22,7 +24,7 @@
         
       }
       function popup() {
-        window.open(window.location.href,'test','popup=true,height=700,width=750,resizable=no,scrollbars=yes,toolbar=no,menubar=yes');
+        window.open(window.location.href,'test','popup=true,height=600,width=650,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes');
       }
     </script>
   </body>
