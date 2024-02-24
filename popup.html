@@ -7,7 +7,6 @@
     <iframe style="border: 0;" src="" width="550" height="550" id="framed"></iframe>
     <input type="text" id="serverid">
     <button onclick="loadmessages()" id="serverloadbutton">Load server</button>
-    <button onclick="popup()">Open Popup window</button>
     <div id="sendmsg">
       <input type="text" id="usernamebox" placeholder="username">
       <input type="password" id="passwordbox" placeholder="password">
@@ -50,9 +49,6 @@
         serverbutton.setAttribute("hidden", "true")
         inputserv.setAttribute("hidden", "true")
         document.cookie = "serveronload="+inputserv.value
-      }
-      function popup() {
-        window.open('popup.html', 'test','popup=true,height=600,width=650,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes');
       }
       function getCookie(name) {
         const value = `; ${document.cookie}`;
