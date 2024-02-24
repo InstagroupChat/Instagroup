@@ -3,21 +3,71 @@
     <title>Instagroup chat</title>
   </head>
   <body>
-    <iframe style="border: 0;" src="" width="600" height="650" id="framed"></iframe>
+    <script src="APISend.js"></script>
+    <iframe style="border: 0;" src="" width="550" height="550" id="framed"></iframe>
     <input type="text" id="serverid">
     <button onclick="loadmessages()" id="serverloadbutton">Load server</button>
+    <button onclick="popup()">Open Popup window</button>
+    <div id="sendmsg">
+      <input type="text" id="usernamebox" placeholder="username">
+      <input type="password" id="passwordbox" placeholder="password">
+      <button onclick="save_login()">save</button>
+      <input type="text" id="messagebox" placeholder="message">
+      <button onclick="sendtoapi()">send</button>
+    </div>
+    <style>
+      input {
+        padding:10px;
+        border-radius:10px;
+      }
+      button {
+
+        /* remove default behavior */
+        appearance:none;
+        -webkit-appearance:none;
+
+        /* usual styles */
+        padding:10px;
+        border-color: black;
+        background-color:#3F51B5;
+        color:#fff;
+        font-weight:600;
+        border-radius:5px;
+        width:100%;
+
+      }
+    </style>
     <script>
       var inputserv = document.getElementById('serverid')
       var serverbutton = document.getElementById('serverloadbutton')
       var fream = document.getElementById('framed')
-      fream.width = window.innerWidth - 50
-      fream.height = window.innerHeight - 50
-      fream.setAttribute("src", "https://script.google.com/macros/s/AKfycbx_t_oBYmPCahY7zmc-rdvjvx40vVk2qLtDUbGdlz9zPM2pSg86iZ-RlmUAgKaG0Jw6qg/exec?serverid="+document.cookie.split("serveronload=")[1]) 
+      var usernametosave = document.getElementById('usernamebox')
+      var passwordtosave = document.getElementById('passwordbox')
+      var mesgbox = document.getElementById('messagebox')
+      fream.setAttribute("src", "https://script.google.com/macros/s/AKfycbx_t_oBYmPCahY7zmc-rdvjvx40vVk2qLtDUbGdlz9zPM2pSg86iZ-RlmUAgKaG0Jw6qg/exec?serverid="+getCookie("serveronload")) 
       function loadmessages() {
         fream.setAttribute("src", "https://script.google.com/macros/s/AKfycbx_t_oBYmPCahY7zmc-rdvjvx40vVk2qLtDUbGdlz9zPM2pSg86iZ-RlmUAgKaG0Jw6qg/exec?serverid="+inputserv.value) 
         serverbutton.setAttribute("hidden", "true")
         inputserv.setAttribute("hidden", "true")
         document.cookie = "serveronload="+inputserv.value
+      }
+      function popup() {
+        window.open('popup.html', 'test','popup=true,height=600,width=650,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes');
+      }
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+      function save_login() {
+        document.cookie = "usernamesaved="+usernametosave.value
+        document.cookie = "passwordsaved="+passwordtosave.value
+        usernametosave.setAttribute('hidden', "true")
+        passwordtosave.setAttribute('hidden', "true")
+      }
+      function sendtoapi() {
+        sendMsgUser(getCookie("usernamesaved"), getCookie("passwordsaved"), mesgbox.value, getCookie("serveronload"))
+        setTimeout(window.open(window.location.href, "_top"), 2000)
       }
     </script>
   </body>
