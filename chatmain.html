@@ -72,8 +72,18 @@
       }
       function sendtoapi() {
         sendMsgUser(getCookie("usernamesaved"), getCookie("passwordsaved"), mesgbox.value, getCookie("serveronload"))
-        setTimeout(window.open(window.location.href, "_top"), 2000)
+        var waittimer = wait(3500)
+        if (waittimer==true) {
+          window.open(window.location.href, "_top")
+        }
       }
-    </script>
+      function wait(milleseconds) {
+        var timer = 0
+        while (timer<milleseconds) {
+          timer++
+        }
+        return true
+      }
+     </script>
   </body>
 </html>
